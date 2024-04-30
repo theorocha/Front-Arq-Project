@@ -5,6 +5,7 @@ import App from "./App";
 import "./index.css";
 import ClientesDaEmpresa from "./pages/empresa/ClientesDaEmpresa";
 import NotFoundPage from "./pages/NotFoundPage";
+import DadosCliente from "./pages/cliente/DadosCliente";
 
 const router = createBrowserRouter([
   {
@@ -12,8 +13,12 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/clientes",
+    path: "/empresa/clientes",
     element: <ClientesDaEmpresa />,
+  },
+  {
+    path: "/cliente/:clienteId",
+    element: <DadosCliente />,
   },
   {
     path: "/*",
