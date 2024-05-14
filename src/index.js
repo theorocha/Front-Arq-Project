@@ -6,6 +6,10 @@ import "./index.css";
 import ClientesDaEmpresa from "./pages/empresa/ClientesDaEmpresa";
 import NotFoundPage from "./pages/NotFoundPage";
 import DadosCliente from "./pages/cliente/DadosCliente";
+import Empresa from "./pages/empresa/Empresa";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -21,6 +25,10 @@ const router = createBrowserRouter([
     element: <DadosCliente />,
   },
   {
+    path: "/empresa",
+    element: <Empresa />,
+  },
+  {
     path: "/*",
     element: <NotFoundPage />,
   },
@@ -29,6 +37,8 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </React.StrictMode>
 );
