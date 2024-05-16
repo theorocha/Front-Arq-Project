@@ -1,7 +1,9 @@
+import PermanentDrawerLeft from "./components/PermanentDrawerLeft";
+
 function App() {
   return (
     <div>
-      <h2>Meu app</h2>
+      <PermanentDrawerLeft>Minha tabela aqui</PermanentDrawerLeft>
     </div>
   );
 }
