@@ -11,3 +11,17 @@ export function useEmpresa() {
     queryFn,
   });
 }
+
+export function useEmpresaById(empresaId) {
+  return useQuery({
+    queryKey: [`/api/empresa`],
+    queryFn,
+  });
+}
+
+export function useEmpresaClientes(empresaId) {
+  return useQuery({
+    queryKey: [`/api/empresa/${empresaId}/clientes`],
+    queryFn,
+  });
+}

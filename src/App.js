@@ -1,9 +1,9 @@
-import PermanentDrawerLeft from "./components/PermanentDrawerLeft";
+import { Link } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <PermanentDrawerLeft>Minha tabela aqui</PermanentDrawerLeft>
+    <div className="">
+      <Link to={"/empresa/1/clientes"}>Acesse o site aqui</Link>
     </div>
   );
 }

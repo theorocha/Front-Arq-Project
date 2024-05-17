@@ -12,11 +12,12 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import * as React from "react";
-import Sidebar from "./Sidebar";
+import Sidebar from "../sidebar/Sidebar";
+import { Typography } from "@mui/material";
 
 const drawerWidth = 240;
 
-export default function PermanentDrawerLeft({ children }) {
+export default function EmpresaTemplatePage({ children, empresaId }) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -24,7 +25,9 @@ export default function PermanentDrawerLeft({ children }) {
         position="fixed"
         sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
       >
-        <Toolbar></Toolbar>
+        <Toolbar>
+          <Typography variant="h6" noWrap component="div"></Typography>
+        </Toolbar>
       </AppBar>
       <Drawer
         sx={{
