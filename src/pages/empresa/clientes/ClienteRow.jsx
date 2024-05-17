@@ -27,24 +27,22 @@ export default function ClienteRow({ cliente }) {
       </TableRow>
       {expanded && (
         <TableRow>
-          <TableCell
-            style={{ paddingBottom: 0, paddingTop: 0, textDecoration: "none" }}
-            colSpan={12}
-          >
-            <TableCell>
-              <Typography variant="body2">
-                {[
-                  cliente?.endereco?.logradouro,
-                  cliente?.endereco?.numero,
-                  cliente?.endereco?.complemento,
-                  cliente?.endereco?.bairro,
-                  cliente?.endereco?.estado,
-                  cliente?.endereco?.pais,
-                ]
-                  .filter(Boolean)
-                  .join(" - ")}
-              </Typography>
-            </TableCell>
+          <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={7}>
+            <Typography
+              variant="body2"
+              style={{ padding: "20px 16px", border: "none" }}
+            >
+              {[
+                cliente?.endereco?.logradouro,
+                cliente?.endereco?.numero,
+                cliente?.endereco?.complemento,
+                cliente?.endereco?.bairro,
+                cliente?.endereco?.estado,
+                cliente?.endereco?.pais,
+              ]
+                .filter(Boolean)
+                .join(" - ")}
+            </Typography>
           </TableCell>
         </TableRow>
       )}
