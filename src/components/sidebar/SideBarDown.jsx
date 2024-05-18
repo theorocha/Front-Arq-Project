@@ -2,21 +2,24 @@ import InboxIcon from "@mui/icons-material/Inbox";
 import MailIcon from "@mui/icons-material/Mail";
 import { List } from "@mui/material";
 import React from "react";
-import SideBarItem from "./SideBarItem";
+import SideBarDownItem from "./SideBarDownItem";
 
-export default function Sidebar() {
-  //todo -> rota variável...
+export default function SideBarDown() {
   const empresaId = 1;
 
   const menuItems = [
-    { text: "Clientes", icon: InboxIcon, to: `/empresa/${empresaId}/clientes` },
-    { text: "Orçamentos", icon: MailIcon, to: "/starred" },
+    {
+      text: "Serviços prestados",
+      icon: MailIcon,
+      to: `/empresa/${empresaId}/servicos-prestados`,
+    },
+    { text: "Serviços extras", icon: InboxIcon, to: "/send-email" },
   ];
 
   return (
     <List>
       {menuItems.map((item, index) => (
-        <SideBarItem
+        <SideBarDownItem
           key={index}
           text={item.text}
           icon={item.icon}

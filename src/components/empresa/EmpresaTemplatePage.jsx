@@ -1,23 +1,20 @@
-import MailIcon from "@mui/icons-material/Mail";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
+import { Typography } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import * as React from "react";
+import { useEmpresaById } from "../../api/empresaAPI";
+import SideBarDown from "../sidebar/SideBarDown";
 import Sidebar from "../sidebar/Sidebar";
-import { Typography } from "@mui/material";
 
-const drawerWidth = 240;
+const drawerWidth = 220;
 
 export default function EmpresaTemplatePage({ children, empresaId }) {
+  const { data: empresa } = useEmpresaById(empresaId);
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -26,7 +23,9 @@ export default function EmpresaTemplatePage({ children, empresaId }) {
         sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
       >
         <Toolbar>
-          <Typography variant="h6" noWrap component="div"></Typography>
+          <Typography variant="h6" noWrap component="div">
+            {empresa?.nome}
+          </Typography>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -45,18 +44,7 @@ export default function EmpresaTemplatePage({ children, empresaId }) {
         <Divider />
         <Sidebar />
         <Divider />
-        <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+        <SideBarDown />
       </Drawer>
       <Box
         component="main"

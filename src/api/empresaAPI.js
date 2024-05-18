@@ -14,7 +14,7 @@ export function useEmpresa() {
 
 export function useEmpresaById(empresaId) {
   return useQuery({
-    queryKey: [`/api/empresa`],
+    queryKey: [`/api/empresa/${empresaId}`],
     queryFn,
   });
 }
@@ -22,6 +22,13 @@ export function useEmpresaById(empresaId) {
 export function useEmpresaClientes(empresaId) {
   return useQuery({
     queryKey: [`/api/empresa/${empresaId}/clientes`],
+    queryFn,
+  });
+}
+
+export function useEmpresaServicosPrestados(empresaId) {
+  return useQuery({
+    queryKey: [`/api/empresa/${empresaId}/servicos-prestados`],
     queryFn,
   });
 }

@@ -5,8 +5,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import "./index.css";
 import DadosCliente from "./pages/cliente/DadosCliente";
-import ClientesDaEmpresa from "./pages/empresa/clientes/ClientesDaEmpresa";
+import ClientesDaEmpresaPage from "./pages/empresa/clientes/ClientesDaEmpresaPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import ServicosPrestadosDaEmpresaPage from "./pages/empresa/servicos-prestados/ServicosPrestadosDaEmpresaPage";
 
 const queryClient = new QueryClient();
 
@@ -17,7 +18,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/empresa/:empresaId/clientes",
-    element: <ClientesDaEmpresa />,
+    element: <ClientesDaEmpresaPage />,
+  },
+  {
+    path: "/empresa/:empresaId/servicos-prestados",
+    element: <ServicosPrestadosDaEmpresaPage />,
   },
   {
     path: "/cliente/:clienteId",

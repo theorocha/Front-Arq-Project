@@ -4,7 +4,7 @@ import { useEmpresaClientes } from "../../../api/empresaAPI";
 import { LinearProgress } from "@mui/material";
 import TableClientes from "./TableClientes";
 
-export default function ClientesDaEmpresa() {
+export default function ClientesDaEmpresaPage() {
   const { empresaId } = useParams();
   const { data: clientes, isLoading } = useEmpresaClientes(empresaId);
 

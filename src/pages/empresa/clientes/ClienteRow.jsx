@@ -1,7 +1,16 @@
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { IconButton, TableCell, TableRow, Typography } from "@mui/material";
+import {
+  Grid,
+  IconButton,
+  TableCell,
+  TableRow,
+  Typography,
+} from "@mui/material";
 import React, { useState } from "react";
+import Dado from "../../../components/geral/Dado";
+import ExcluirClienteCommand from "./ExcluirClienteCommand";
+import EditarClienteCommand from "./EditarClienteCommand";
 
 export default function ClienteRow({ cliente }) {
   const [expanded, setExpanded] = useState(false);
@@ -18,31 +27,57 @@ export default function ClienteRow({ cliente }) {
             {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
           </IconButton>
         </TableCell>
-        <TableCell>{cliente?.id}</TableCell>
-        <TableCell>{cliente?.cpf}</TableCell>
-        <TableCell>{cliente?.nome}</TableCell>
-        <TableCell>{cliente?.email}</TableCell>
-        <TableCell>{cliente?.celular}</TableCell>
-        <TableCell>{cliente?.endereco?.cep}</TableCell>
+        <TableCell>
+          <Typography variant="body2">{cliente?.id}</Typography>
+        </TableCell>
+        <TableCell>
+          <Typography variant="body2">{cliente?.cpf}</Typography>
+        </TableCell>
+        <TableCell>
+          <Typography variant="body2">{cliente?.nome}</Typography>
+        </TableCell>
+        <TableCell>
+          <Typography variant="body2">{cliente?.email}</Typography>
+        </TableCell>
+        <TableCell>
+          <Typography variant="body2">{cliente?.celular}</Typography>
+        </TableCell>
+        <TableCell>
+          <Typography variant="body2">{cliente?.endereco?.cep}</Typography>
+        </TableCell>
+        <TableCell
+          sx={{
+            margin: "0",
+            padding: "0",
+          }}
+          align="right"
+        >
+          <>
+            <EditarClienteCommand cliente={cliente} />
+            <ExcluirClienteCommand cliente={cliente} />
+          </>
+        </TableCell>
       </TableRow>
       {expanded && (
         <TableRow>
-          <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={7}>
-            <Typography
-              variant="body2"
-              style={{ padding: "20px 16px", border: "none" }}
-            >
-              {[
-                cliente?.endereco?.logradouro,
-                cliente?.endereco?.numero,
-                cliente?.endereco?.complemento,
-                cliente?.endereco?.bairro,
-                cliente?.endereco?.estado,
-                cliente?.endereco?.pais,
-              ]
-                .filter(Boolean)
-                .join(" - ")}
-            </Typography>
+          <TableCell colSpan={12}>
+            <Grid container>
+              <Grid item xs={12} marginLeft={"6rem"}>
+                <Dado
+                  label="Endereço"
+                  value={[
+                    cliente?.endereco?.logradouro,
+                    cliente?.endereco?.numero,
+                    cliente?.endereco?.complemento,
+                    cliente?.endereco?.bairro,
+                    cliente?.endereco?.estado,
+                    cliente?.endereco?.pais,
+                  ]
+                    .filter(Boolean)
+                    .join(" - ")}
+                />
+              </Grid>
+            </Grid>
           </TableCell>
         </TableRow>
       )}
