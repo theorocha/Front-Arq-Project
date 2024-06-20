@@ -8,6 +8,7 @@ import DadosCliente from "./pages/cliente/DadosCliente";
 import ClientesDaEmpresaPage from "./pages/empresa/clientes/ClientesDaEmpresaPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ServicosPrestadosDaEmpresaPage from "./pages/empresa/servicos-prestados/ServicosPrestadosDaEmpresaPage";
+import ServicoContratoPage from "./pages/empresa/servicos-contratos/ServicoContratoPage";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/empresa/:empresaId/servicos-prestados",
     element: <ServicosPrestadosDaEmpresaPage />,
+  },
+  {
+    path: "/empresa/:empresaId/servicos-contratos",
+    element: <ServicoContratoPage />,
   },
   {
     path: "/cliente/:clienteId",

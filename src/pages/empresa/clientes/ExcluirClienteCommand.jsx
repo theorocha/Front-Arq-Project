@@ -8,6 +8,7 @@ export default function ExcluirClienteCommand({ cliente }) {
         variant="outlined"
         size="small"
         sx={{ marginRight: "0.5rem" }}
+        color="error"
         // className={`${btnClasses.miniButton} ${btnClasses.dangerButton}`}
         // onClick={() => handleExcluir(falta)}
       >
