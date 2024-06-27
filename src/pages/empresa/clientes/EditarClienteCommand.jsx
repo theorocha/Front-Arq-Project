@@ -3,7 +3,7 @@ import EditIcon from "@mui/icons-material/Edit";
 
 export default function EditarClienteCommand({ cliente }) {
   return (
-    <Tooltip title="Excluir Cliente">
+    <Tooltip title="Editar Cliente">
       <Button
         variant="outlined"
         size="small"

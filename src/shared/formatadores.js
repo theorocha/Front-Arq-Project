@@ -15,6 +15,12 @@ export function normalizarData(date) {
   return returnDate;
 }
 
+export function formataData(date) {
+  const [year, month, day] = date.split("-");
+  const formattedDate = `${month}/${day}/${year}`;
+  return formattedDate;
+}
+
 export function formataCep(cep) {
   if (!cep || cep.length < 8) {
     return cep;

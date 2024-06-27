@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { createApi, createQueryFetcher } from "./apiConfig";
 
 const baseURL = "http://localhost:8080";
@@ -22,6 +22,26 @@ export function useEmpresaById(empresaId) {
 export function useEmpresaClientes(empresaId) {
   return useQuery({
     queryKey: [`/api/empresa/${empresaId}/clientes`],
+    queryFn,
+  });
+}
+
+export function useNovoClienteEmpresa() {
+  const queryClient = useQueryClient();
+
+  return useMutation(
+    ({ cliente, empresaId }) =>
+      api.post(`/api/empresa/${empresaId}/cliente`, cliente),
+    {
+      onSuccess: ({ empresaId }) => {
+        queryClient.invalidateQueries(`/api/empresa/${empresaId}/clientes`);
+      },
+    }
+  );
+}
+export function useEmpresaOrcamentos(empresaId) {
+  return useQuery({
+    queryKey: [`/api/empresa/${empresaId}/orcamentos`],
     queryFn,
   });
 }

@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Typography, Grid } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -10,9 +10,13 @@ import { useEmpresaById } from "../../api/empresaAPI";
 import SideBarDown from "../sidebar/SideBarDown";
 import Sidebar from "../sidebar/Sidebar";
 
-const drawerWidth = 220;
+const drawerWidth = 250;
 
-export default function EmpresaTemplatePage({ children, empresaId }) {
+export default function EmpresaTemplatePage({
+  children,
+  empresaId,
+  commands = [],
+}) {
   const { data: empresa } = useEmpresaById(empresaId);
 
   return (
@@ -48,10 +52,26 @@ export default function EmpresaTemplatePage({ children, empresaId }) {
       </Drawer>
       <Box
         component="main"
-        sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
+        sx={{
+          flexGrow: 1,
+          bgcolor: "background.default",
+          p: 3,
+          paddingTop: `calc(64px + 16px)`, // Ajusta o espaçamento acima do conteúdo principal
+        }}
       >
-        <Toolbar />
-        {children}
+        <Grid
+          container
+          spacing={3}
+          alignItems="center"
+          justifyContent="flex-end"
+        >
+          {commands.map((command, index) => (
+            <Grid item key={index}>
+              {command}
+            </Grid>
+          ))}
+        </Grid>
+        <Box mt={3}>{children}</Box>
       </Box>
     </Box>
   );

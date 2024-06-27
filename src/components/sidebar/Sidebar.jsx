@@ -14,7 +14,7 @@ export default function Sidebar() {
     {
       text: "Orçamentos",
       icon: MailIcon,
-      to: `/empresa/${empresaId}/clientes`,
+      to: `/empresa/${empresaId}/orcamentos`,
     },
     {
       text: "Contratos",
