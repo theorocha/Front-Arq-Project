@@ -4,6 +4,7 @@ import { createApi, createQueryFetcher } from "./apiConfig";
 const baseURL = "http://localhost:8080";
 export const api = createApi(baseURL);
 const queryFn = createQueryFetcher(api);
+let ultimaQuery = "";
 
 export function useEmpresa() {
   return useQuery({
@@ -20,8 +21,9 @@ export function useEmpresaById(empresaId) {
 }
 
 export function useEmpresaClientes(empresaId) {
+  ultimaQuery = `/api/empresa/${empresaId}/clientes`;
   return useQuery({
-    queryKey: [`/api/empresa/${empresaId}/clientes`],
+    queryKey: [ultimaQuery],
     queryFn,
   });
 }
@@ -35,6 +37,20 @@ export function useNovoClienteEmpresa() {
     {
       onSuccess: ({ empresaId }) => {
         queryClient.invalidateQueries(`/api/empresa/${empresaId}/clientes`);
+      },
+    }
+  );
+}
+
+export function useExcluirClienteEmpresa() {
+  const queryClient = useQueryClient();
+
+  return useMutation(
+    ({ empresaId, clienteId }) =>
+      api.delete(`/api/empresa/${empresaId}/cliente/${clienteId}`),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(ultimaQuery);
       },
     }
   );

@@ -10,6 +10,8 @@ import NotFoundPage from "./pages/NotFoundPage";
 import ServicosPrestadosDaEmpresaPage from "./pages/empresa/servicos-prestados/ServicosPrestadosDaEmpresaPage";
 import ServicoContratoPage from "./pages/empresa/servicos-contratos/ServicoContratoPage";
 import OrcamentosDaEmpresaPage from "./pages/empresa/orcamentos/OrcamentosDaEmpresaPage";
+import { SnackbarProvider } from "notistack";
+import { DialogProvider } from "muibox";
 
 const queryClient = new QueryClient();
 
@@ -47,8 +49,12 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+    <SnackbarProvider maxSnack={1}>
+      <DialogProvider>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+      </DialogProvider>
+    </SnackbarProvider>
   </React.StrictMode>
 );
