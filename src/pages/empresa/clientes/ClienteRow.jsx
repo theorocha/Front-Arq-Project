@@ -12,7 +12,7 @@ import Dado from "../../../components/geral/Dado";
 import ExcluirClienteCommand from "./ExcluirClienteCommand";
 import EditarClienteCommand from "./EditarClienteCommand";
 
-export default function ClienteRow({ cliente }) {
+export default function ClienteRow({ cliente, key }) {
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
@@ -21,7 +21,7 @@ export default function ClienteRow({ cliente }) {
 
   return (
     <>
-      <TableRow>
+      <TableRow key={key}>
         <TableCell>
           <IconButton onClick={handleExpandClick}>
             {expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}

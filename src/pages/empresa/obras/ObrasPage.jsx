@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
 import EmpresaTemplatePage from "../../../components/empresa/EmpresaTemplatePage";
 
-export default function ServicoContratoPage() {
+export default function ObrasPage() {
   const { empresaId } = useParams();
 
   return (
     <EmpresaTemplatePage empresaId={empresaId}>
-      "Meus contratos aqui"
+      "Minhas obras aqui"
     </EmpresaTemplatePage>
   );
 }

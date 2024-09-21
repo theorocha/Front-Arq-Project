@@ -1,6 +1,6 @@
-import InboxIcon from "@mui/icons-material/Inbox";
-import MailIcon from "@mui/icons-material/Mail";
 import ArticleIcon from "@mui/icons-material/Article";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
+import EngineeringIcon from "@mui/icons-material/Engineering";
 import { List } from "@mui/material";
 import React from "react";
 import SideBarItem from "./SideBarItem";
@@ -10,16 +10,20 @@ export default function Sidebar() {
   const empresaId = 1;
 
   const menuItems = [
-    { text: "Clientes", icon: InboxIcon, to: `/empresa/${empresaId}/clientes` },
+    {
+      text: "Clientes",
+      icon: PeopleAltIcon,
+      to: `/empresa/${empresaId}/clientes`,
+    },
     {
       text: "Orçamentos",
-      icon: MailIcon,
+      icon: ArticleIcon,
       to: `/empresa/${empresaId}/orcamentos`,
     },
     {
-      text: "Contratos",
-      icon: ArticleIcon,
-      to: `/empresa/${empresaId}/servicos-contratos`,
+      text: "Obras",
+      icon: EngineeringIcon,
+      to: `/empresa/${empresaId}/obras`,
     },
   ];
 

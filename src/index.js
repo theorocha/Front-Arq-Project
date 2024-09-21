@@ -8,10 +8,11 @@ import DadosCliente from "./pages/cliente/DadosCliente";
 import ClientesDaEmpresaPage from "./pages/empresa/clientes/ClientesDaEmpresaPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ServicosPrestadosDaEmpresaPage from "./pages/empresa/servicos-prestados/ServicosPrestadosDaEmpresaPage";
-import ServicoContratoPage from "./pages/empresa/servicos-contratos/ServicoContratoPage";
 import OrcamentosDaEmpresaPage from "./pages/empresa/orcamentos/OrcamentosDaEmpresaPage";
 import { SnackbarProvider } from "notistack";
 import { DialogProvider } from "muibox";
+import ObrasPage from "./pages/empresa/obras/ObrasPage";
+import ServicosExtraPage from "./pages/empresa/servicos-extras/ServicosExtraPage";
 
 const queryClient = new QueryClient();
 
@@ -33,8 +34,12 @@ const router = createBrowserRouter([
     element: <ServicosPrestadosDaEmpresaPage />,
   },
   {
-    path: "/empresa/:empresaId/servicos-contratos",
-    element: <ServicoContratoPage />,
+    path: "/empresa/:empresaId/servicos-extras",
+    element: <ServicosExtraPage />,
+  },
+  {
+    path: "/empresa/:empresaId/obras",
+    element: <ObrasPage />,
   },
   {
     path: "/cliente/:clienteId",

@@ -68,3 +68,10 @@ export function useEmpresaServicosPrestados(empresaId) {
     queryFn,
   });
 }
+
+export function useEmpresaServicosExtras(empresaId) {
+  return useQuery({
+    queryKey: [`/api/empresa/${empresaId}/servicos-extras`],
+    queryFn,
+  });
+}

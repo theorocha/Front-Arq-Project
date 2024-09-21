@@ -6,11 +6,13 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Typography,
 } from "@mui/material";
 import EmptyPanel from "../../../components/geral/EmptyPanel";
+import ServicosPrestadosRow from "./ServicosPrestadosRow";
 
 export default function TableServicosPrestados({ servicosPrestados }) {
+  console.log(servicosPrestados);
+
   if (
     servicosPrestados?.length === 0 ||
     servicosPrestados === undefined ||
@@ -28,18 +30,12 @@ export default function TableServicosPrestados({ servicosPrestados }) {
           <TableRow>
             <TableCell>Id</TableCell>
             <TableCell>Descrição</TableCell>
+            <TableCell align="right">Ações</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {servicosPrestados?.map((sp) => (
-            <TableRow key={sp.id}>
-              <TableCell>
-                <Typography variant="body2">{sp?.id}</Typography>
-              </TableCell>
-              <TableCell>
-                <Typography variant="body2">{sp?.descricao}</Typography>
-              </TableCell>
-            </TableRow>
+            <ServicosPrestadosRow key={sp.id} sp={sp} />
           ))}
         </TableBody>
       </Table>
