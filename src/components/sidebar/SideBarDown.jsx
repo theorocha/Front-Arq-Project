@@ -33,7 +33,7 @@ export default function SideBarDown() {
     {
       text: "Razão encerramento",
       icon: DoNotDisturbAltIcon,
-      to: `/empresa/${empresaId}/razao-encerramento`,
+      to: `/empresa/${empresaId}/razoes-encerramento`,
     },
   ];
 

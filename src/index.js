@@ -13,6 +13,7 @@ import { SnackbarProvider } from "notistack";
 import { DialogProvider } from "muibox";
 import ObrasPage from "./pages/empresa/obras/ObrasPage";
 import ServicosExtraPage from "./pages/empresa/servicos-extras/ServicosExtraPage";
+import RazaoEncerramentoPage from "./pages/empresa/razao-encerramento/RazaoEncerramentoPage";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: "/empresa/:empresaId/servicos-extras",
     element: <ServicosExtraPage />,
+  },
+  {
+    path: "/empresa/:empresaId/razoes-encerramento",
+    element: <RazaoEncerramentoPage />,
   },
   {
     path: "/empresa/:empresaId/obras",

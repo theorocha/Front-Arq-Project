@@ -75,3 +75,10 @@ export function useEmpresaServicosExtras(empresaId) {
     queryFn,
   });
 }
+
+export function useEmpresaRazaoEncerramento(empresaId) {
+  return useQuery({
+    queryKey: [`/api/empresa/${empresaId}/razao-encerramento`],
+    queryFn,
+  });
+}
