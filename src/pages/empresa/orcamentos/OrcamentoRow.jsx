@@ -10,7 +10,6 @@ export default function OrcamentoRow({ orcamento }) {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  console.log(orcamento);
 
   return (
     <>

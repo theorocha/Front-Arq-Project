@@ -5,7 +5,6 @@ import CrudTabelaBasica from "../../../components/geral/tabelas-basicas/CrudTabe
 export default function ServicosExtraPage() {
   const { empresaId } = useParams();
   const { data, isLoading } = useEmpresaServicosExtras(empresaId);
-  console.log(data);
 
   return (
     <CrudTabelaBasica

@@ -14,6 +14,7 @@ import { DialogProvider } from "muibox";
 import ObrasPage from "./pages/empresa/obras/ObrasPage";
 import ServicosExtraPage from "./pages/empresa/servicos-extras/ServicosExtraPage";
 import RazaoEncerramentoPage from "./pages/empresa/razao-encerramento/RazaoEncerramentoPage";
+import StatusServicoPage from "./pages/empresa/status-servico/StatusServicoPage";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: "/empresa/:empresaId/razoes-encerramento",
     element: <RazaoEncerramentoPage />,
+  },
+  {
+    path: "/empresa/:empresaId/status-servico",
+    element: <StatusServicoPage />,
   },
   {
     path: "/empresa/:empresaId/obras",

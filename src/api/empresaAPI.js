@@ -82,3 +82,10 @@ export function useEmpresaRazaoEncerramento(empresaId) {
     queryFn,
   });
 }
+
+export function useEmpresaStatusServico(empresaId) {
+  return useQuery({
+    queryKey: [`/api/empresa/${empresaId}/status-servico`],
+    queryFn,
+  });
+}

@@ -11,8 +11,6 @@ import EmptyPanel from "../../../components/geral/EmptyPanel";
 import ServicosPrestadosRow from "./ServicosPrestadosRow";
 
 export default function TableServicosPrestados({ servicosPrestados }) {
-  console.log(servicosPrestados);
-
   if (
     servicosPrestados?.length === 0 ||
     servicosPrestados === undefined ||

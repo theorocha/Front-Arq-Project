@@ -8,7 +8,6 @@ export default function ServicosPrestadosDaEmpresaPage() {
   const { empresaId } = useParams();
   const { data: servicosPrestados, isLoading } =
     useEmpresaServicosPrestados(empresaId);
-  console.log(servicosPrestados);
   const commands = [<Button variant="contained">Novo serviço</Button>];
 
   return (

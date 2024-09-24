@@ -5,7 +5,6 @@ import CrudTabelaBasica from "../../../components/geral/tabelas-basicas/CrudTabe
 export default function RazaoEncerramentoPage() {
   const { empresaId } = useParams();
   const { data, isLoading } = useEmpresaRazaoEncerramento(empresaId);
-  console.log(data);
 
   return (
     <CrudTabelaBasica
