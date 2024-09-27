@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEmpresaServicosExtras } from "../../../api/empresaAPI";
-import CrudTabelaBasica from "../../../components/geral/tabelas-basicas/CrudTabelaBasica";
+import CrudTabelaBasica from "../../../components/geral/CrudTabelaBasica";
 
 export default function ServicosExtraPage() {
   const { empresaId } = useParams();

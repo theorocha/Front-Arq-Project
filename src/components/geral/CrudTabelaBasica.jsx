@@ -9,11 +9,8 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import EmpresaTemplatePage from "../../empresa/EmpresaTemplatePage";
-import EditarTabelaBasicaCommand from "./EditarTabelaBasicaCommand";
-import ExcluirTabelaBasicaCommand from "./ExcluirTabelaBasicaCommand";
-import NovoTabelaBasicaCommand from "./NovoTabelaBasicaCommand";
-import EmptyPanel from "../EmptyPanel";
+import EmpresaTemplatePage from "../empresa/EmpresaTemplatePage";
+import EmptyPanel from "./EmptyPanel";
 
 export default function CrudTabelaBasica({
   data,
@@ -21,8 +18,15 @@ export default function CrudTabelaBasica({
   novoLabel,
   emptyPanelMessage,
   empresaId,
+  deleteCommand,
+  editCommand,
+  novoCommand,
 }) {
-  const commands = [<NovoTabelaBasicaCommand novoLabel={novoLabel} />];
+  const commands = [
+    novoCommand && (
+      <novoCommand.type {...novoCommand.props} novoLabel={novoLabel} />
+    ),
+  ];
 
   return (
     <EmpresaTemplatePage empresaId={empresaId} commands={commands}>
@@ -58,8 +62,15 @@ export default function CrudTabelaBasica({
                     align="right"
                   >
                     <>
-                      <EditarTabelaBasicaCommand item={item} />
-                      <ExcluirTabelaBasicaCommand item={item} />
+                      {editCommand && (
+                        <editCommand.type {...editCommand.props} item={item} />
+                      )}
+                      {deleteCommand && (
+                        <deleteCommand.type
+                          {...deleteCommand.props}
+                          item={item}
+                        />
+                      )}
                     </>
                   </TableCell>
                 </TableRow>

@@ -1,6 +1,7 @@
 import { Button, Tooltip } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
-export default function EditarTabelaBasicaCommand({ item }) {
+
+export default function EditarStatusOrcamentoCommand({ sp }) {
   return (
     <Tooltip title="Editar Serviço">
       <Button

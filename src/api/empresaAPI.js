@@ -89,3 +89,10 @@ export function useEmpresaStatusServico(empresaId) {
     queryFn,
   });
 }
+
+export function useEmpresaStatusOrcamento(empresaId) {
+  return useQuery({
+    queryKey: [`/api/empresa/${empresaId}/status-orcamento`],
+    queryFn,
+  });
+}

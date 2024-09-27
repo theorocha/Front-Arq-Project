@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
 
-export default function NovoTabelaBasicaCommand({ novoLabel }) {
+export default function NovoStatusOrcamentoCommand({ novoLabel }) {
   return <Button variant="contained">{novoLabel}</Button>;
 }
