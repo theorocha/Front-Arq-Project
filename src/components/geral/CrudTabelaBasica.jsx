@@ -15,18 +15,12 @@ import EmptyPanel from "./EmptyPanel";
 export default function CrudTabelaBasica({
   data,
   isLoading,
-  novoLabel,
   emptyPanelMessage,
   empresaId,
   deleteCommand,
-  editCommand,
   novoCommand,
 }) {
-  const commands = [
-    novoCommand && (
-      <novoCommand.type {...novoCommand.props} novoLabel={novoLabel} />
-    ),
-  ];
+  const commands = [novoCommand && <novoCommand.type {...novoCommand.props} />];
 
   return (
     <EmpresaTemplatePage empresaId={empresaId} commands={commands}>
@@ -61,17 +55,12 @@ export default function CrudTabelaBasica({
                     }}
                     align="right"
                   >
-                    <>
-                      {editCommand && (
-                        <editCommand.type {...editCommand.props} item={item} />
-                      )}
-                      {deleteCommand && (
-                        <deleteCommand.type
-                          {...deleteCommand.props}
-                          item={item}
-                        />
-                      )}
-                    </>
+                    {deleteCommand && (
+                      <deleteCommand.type
+                        {...deleteCommand.props}
+                        item={item}
+                      />
+                    )}
                   </TableCell>
                 </TableRow>
               ))}
