@@ -7,11 +7,15 @@ const queryFn = createQueryFetcher(api);
 export function useExcluirRazaoEncerramento() {
   const queryClient = useQueryClient();
 
-  return useMutation(({ id }) => api.delete(`/api/razao-encerramento/${id}`), {
-    onSuccess: ({ empresaId }) => {
-      queryClient.invalidateQueries(
-        `/api/empresa/${empresaId}/razao-encerramento`
-      );
-    },
-  });
+  return useMutation(
+    ({ id, empresaId }) =>
+      api.delete(`/api/razao-encerramento/${id}/empresa/${empresaId}`),
+    {
+      onSuccess: ({ empresaId }) => {
+        queryClient.invalidateQueries(
+          `/api/empresa/${empresaId}/razao-encerramento`
+        );
+      },
+    }
+  );
 }
