@@ -49,6 +49,7 @@ export default function ExcluirRazaoEncerramento({ item, empresaId }) {
       }
     } catch (error) {}
   }
+
   return (
     <Tooltip title="Excluir Razão">
       <Button
