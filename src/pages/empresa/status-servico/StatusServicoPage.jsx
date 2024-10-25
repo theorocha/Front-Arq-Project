@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEmpresaStatusServico } from "../../../api/empresaAPI";
 import CrudTabelaBasica from "../../../components/geral/CrudTabelaBasica";
+import ExcluirStatusServicoCommand from "./ExcluirStatusServicoCommand";
 
 export default function StatusServicoPage() {
   const { empresaId } = useParams();
@@ -11,6 +12,7 @@ export default function StatusServicoPage() {
       data={data}
       isLoading={isLoading}
       novoLabel="Novo Status"
+      deleteCommand={<ExcluirStatusServicoCommand />}
       emptyPanelMessage="Não há status dos serviços das obras registrados nessa empresa."
       empresaId={empresaId}
     />

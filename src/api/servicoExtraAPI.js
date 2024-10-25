@@ -1,14 +1,20 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { createApi, createQueryFetcher } from "./apiConfig";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { baseURL, createApi } from "./apiConfig";
 
-const baseURL = "http://localhost:8080";
 export const api = createApi(baseURL);
-const queryFn = createQueryFetcher(api);
-//let ultimaQuery = "";
 
-export function useServicoExtra() {
-  return useQuery({
-    queryKey: [`/api/servico-extra`],
-    queryFn,
-  });
+export function useExcluirServicoExtra() {
+  const queryClient = useQueryClient();
+
+  return useMutation(
+    ({ id, empresaId }) =>
+      api.delete(`/api/servico-extra/${id}/empresa/${empresaId}`),
+    {
+      onSuccess: ({ empresaId }) => {
+        queryClient.invalidateQueries(
+          `/api/empresa/${empresaId}/servicos-extras`
+        );
+      },
+    }
+  );
 }

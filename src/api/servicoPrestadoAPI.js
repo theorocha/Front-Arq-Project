@@ -3,16 +3,16 @@ import { baseURL, createApi } from "./apiConfig";
 
 export const api = createApi(baseURL);
 
-export function useExcluirStatusOrcamento() {
+export function useExcluirServicoPrestado() {
   const queryClient = useQueryClient();
 
   return useMutation(
     ({ id, empresaId }) =>
-      api.delete(`/api/status-orcamento/${id}/empresa/${empresaId}`),
+      api.delete(`/api/servico-prestado/${id}/empresa/${empresaId}`),
     {
       onSuccess: ({ empresaId }) => {
         queryClient.invalidateQueries(
-          `/api/empresa/${empresaId}/status-orcamento`
+          `/api/empresa/${empresaId}/servicos-prestados`
         );
       },
     }

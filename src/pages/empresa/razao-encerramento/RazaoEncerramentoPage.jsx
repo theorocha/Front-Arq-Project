@@ -15,7 +15,7 @@ export default function RazaoEncerramentoPage() {
       novoLabel="Nova Razao de encerramento"
       emptyPanelMessage="Não há razões de encerramento de obras registradas nessa empresa."
       empresaId={empresaId}
-      deleteCommand={<ExcluirRazaoEncerramento empresaId={empresaId} />}
+      deleteCommand={<ExcluirRazaoEncerramento />}
       novoCommand={<NovaRazaoEncerramento novoLabel="Nova razão" />}
     />
   );

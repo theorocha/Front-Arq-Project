@@ -1,13 +1,13 @@
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Button, Tooltip, Typography } from "@mui/material";
 import { useDialog } from "muibox";
-import { useExcluirServicoPrestado } from "../../../api/servicoPrestadoAPI";
+import { useExcluirServicoExtra } from "../../../api/servicoExtraAPI";
 import useFeedback from "../../../components/geral/useFeedback";
 
-export default function ExcluirServicoPrestadoCommand({ item, empresaId }) {
+export default function ExcluirServicoExtraCommand({ item, empresaId }) {
   const dialog = useDialog();
   const { showSuccess, showError } = useFeedback();
-  const excluirServico = useExcluirServicoPrestado();
+  const excluirServico = useExcluirServicoExtra();
 
   async function handleExcluir(item) {
     try {

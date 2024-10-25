@@ -59,6 +59,7 @@ export default function CrudTabelaBasica({
                       <deleteCommand.type
                         {...deleteCommand.props}
                         item={item}
+                        empresaId={empresaId}
                       />
                     )}
                   </TableCell>

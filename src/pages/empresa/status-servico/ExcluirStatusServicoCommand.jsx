@@ -1,13 +1,13 @@
-import DeleteIcon from "@mui/icons-material/Delete";
 import { Button, Tooltip, Typography } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { useDialog } from "muibox";
-import { useExcluirServicoPrestado } from "../../../api/servicoPrestadoAPI";
 import useFeedback from "../../../components/geral/useFeedback";
+import { useExcluirStatusServico } from "../../../api/statusServicoAPI";
 
-export default function ExcluirServicoPrestadoCommand({ item, empresaId }) {
+export default function ExcluirStatusServicoCommand({ item, empresaId }) {
   const dialog = useDialog();
   const { showSuccess, showError } = useFeedback();
-  const excluirServico = useExcluirServicoPrestado();
+  const excluirStatus = useExcluirStatusServico();
 
   async function handleExcluir(item) {
     try {
@@ -15,7 +15,7 @@ export default function ExcluirServicoPrestadoCommand({ item, empresaId }) {
         message: (
           <>
             <Typography variant="h6">
-              Deseja excluir {item.descricao} da sua lista de serviços?
+              Deseja excluir {item.descricao} da sua lista de status?
             </Typography>
             <Typography style={{ marginTop: "1rem" }}>
               ATENÇÃO: Esta ação não poderá ser desfeita.
@@ -26,7 +26,7 @@ export default function ExcluirServicoPrestadoCommand({ item, empresaId }) {
         cancel: { text: "CANCELAR", color: "primary" },
       });
       try {
-        excluirServico.mutate(
+        excluirStatus.mutate(
           {
             empresaId: empresaId,
             id: item.id,
@@ -36,11 +36,11 @@ export default function ExcluirServicoPrestadoCommand({ item, empresaId }) {
             onError: (error) => {
               const errorMessage =
                 error.response?.data?.message ||
-                "Erro ao tentar excluir o serviço";
+                "Erro ao tentar excluir o status";
               showError(errorMessage);
             },
             onSuccess: () => {
-              showSuccess("Serviço deletado com sucesso.");
+              showSuccess("Status deletado com sucesso.");
             },
           }
         );
@@ -50,7 +50,7 @@ export default function ExcluirServicoPrestadoCommand({ item, empresaId }) {
     } catch (error) {}
   }
   return (
-    <Tooltip title="Excluir Serviço">
+    <Tooltip title="Excluir Status">
       <Button
         variant="outlined"
         size="small"

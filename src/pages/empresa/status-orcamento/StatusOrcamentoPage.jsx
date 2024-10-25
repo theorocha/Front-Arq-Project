@@ -15,7 +15,7 @@ export default function StatusOrcamentoPage() {
       novoLabel="Novo Status"
       emptyPanelMessage="Não há status de orçamentos registrados nessa empresa."
       empresaId={empresaId}
-      deleteCommand={<ExcluirStatusOrcamentoCommand empresaId={empresaId} />}
+      deleteCommand={<ExcluirStatusOrcamentoCommand />}
       novoCommand={<NovoStatusOrcamentoCommand novoLabel="Novo Status" />}
     />
   );

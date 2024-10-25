@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEmpresaServicosExtras } from "../../../api/empresaAPI";
 import CrudTabelaBasica from "../../../components/geral/CrudTabelaBasica";
+import ExcluirServicoExtraCommand from "./ExcluirServicoExtraCommand";
 
 export default function ServicosExtraPage() {
   const { empresaId } = useParams();
@@ -11,6 +12,7 @@ export default function ServicosExtraPage() {
       data={data}
       isLoading={isLoading}
       novoLabel="Novo Serviço"
+      deleteCommand={<ExcluirServicoExtraCommand />}
       emptyPanelMessage="Não há serviços extras registrados nessa empresa."
       empresaId={empresaId}
     />

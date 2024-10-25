@@ -1,8 +1,7 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { createApi, createQueryFetcher, baseURL } from "./apiConfig";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { baseURL, createApi } from "./apiConfig";
 
 export const api = createApi(baseURL);
-const queryFn = createQueryFetcher(api);
 
 export function useExcluirRazaoEncerramento() {
   const queryClient = useQueryClient();
