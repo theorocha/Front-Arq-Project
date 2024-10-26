@@ -12,7 +12,6 @@ export default function RazaoEncerramentoPage() {
     <CrudTabelaBasica
       data={data}
       isLoading={isLoading}
-      novoLabel="Nova Razao de encerramento"
       emptyPanelMessage="Não há razões de encerramento de obras registradas nessa empresa."
       empresaId={empresaId}
       deleteCommand={<ExcluirRazaoEncerramento />}

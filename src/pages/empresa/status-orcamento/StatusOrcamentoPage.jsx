@@ -12,7 +12,6 @@ export default function StatusOrcamentoPage() {
     <CrudTabelaBasica
       data={data}
       isLoading={isLoading}
-      novoLabel="Novo Status"
       emptyPanelMessage="Não há status de orçamentos registrados nessa empresa."
       empresaId={empresaId}
       deleteCommand={<ExcluirStatusOrcamentoCommand />}

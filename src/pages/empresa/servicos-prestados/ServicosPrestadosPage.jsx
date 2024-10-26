@@ -12,7 +12,6 @@ export default function ServicosPrestadosPage() {
     <CrudTabelaBasica
       data={data}
       isLoading={isLoading}
-      novoLabel="Novo Serviço"
       emptyPanelMessage="Não há serviços registrados nessa empresa."
       empresaId={empresaId}
       deleteCommand={<ExcluirServicoPrestadoCommand />}

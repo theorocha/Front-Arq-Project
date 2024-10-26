@@ -11,7 +11,6 @@ export default function StatusServicoPage() {
     <CrudTabelaBasica
       data={data}
       isLoading={isLoading}
-      novoLabel="Novo Status"
       deleteCommand={<ExcluirStatusServicoCommand />}
       emptyPanelMessage="Não há status dos serviços das obras registrados nessa empresa."
       empresaId={empresaId}

@@ -11,7 +11,6 @@ export default function ServicosExtraPage() {
     <CrudTabelaBasica
       data={data}
       isLoading={isLoading}
-      novoLabel="Novo Serviço"
       deleteCommand={<ExcluirServicoExtraCommand />}
       emptyPanelMessage="Não há serviços extras registrados nessa empresa."
       empresaId={empresaId}

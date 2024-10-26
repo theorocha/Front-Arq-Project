@@ -20,7 +20,11 @@ export default function CrudTabelaBasica({
   deleteCommand,
   novoCommand,
 }) {
-  const commands = [novoCommand && <novoCommand.type {...novoCommand.props} />];
+  const commands = [
+    novoCommand && (
+      <novoCommand.type {...novoCommand.props} empresaId={empresaId} />
+    ),
+  ];
 
   return (
     <EmpresaTemplatePage empresaId={empresaId} commands={commands}>
