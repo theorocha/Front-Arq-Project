@@ -18,3 +18,19 @@ export function useExcluirStatusServico() {
     }
   );
 }
+
+export function useNovoStatusServico() {
+  const queryClient = useQueryClient();
+
+  return useMutation(
+    ({ status, empresaId }) =>
+      api.post(`/api/status-servico/empresa/${empresaId}`, status),
+    {
+      onSuccess: ({ empresaId }) => {
+        queryClient.invalidateQueries(
+          `/api/empresa/${empresaId}/status-servico`
+        );
+      },
+    }
+  );
+}

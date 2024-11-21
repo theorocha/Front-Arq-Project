@@ -9,14 +9,14 @@ import {
   Tooltip,
 } from "@mui/material";
 import { useState } from "react";
+import { useNovoStatusServico } from "../../../api/statusServicoAPI";
 import useFeedback from "../../../components/geral/useFeedback";
-import { useNovoStatusOrcamento } from "../../../api/statusOrcamentoAPI.js";
 
-export default function NovoStatusOrcamentoCommand({ novoLabel, empresaId }) {
+export default function NovoStatusServicoCommand({ novoLabel, empresaId }) {
   const [descricao, setDescricao] = useState("");
   const [open, setOpen] = useState(false);
   const { showSuccess, showError } = useFeedback();
-  const novoStatus = useNovoStatusOrcamento();
+  const novoStatus = useNovoStatusServico();
 
   function handleClose() {
     setOpen(false);

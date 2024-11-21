@@ -18,3 +18,19 @@ export function useExcluirStatusOrcamento() {
     }
   );
 }
+
+export function useNovoStatusOrcamento() {
+  const queryClient = useQueryClient();
+
+  return useMutation(
+    ({ status, empresaId }) =>
+      api.post(`/api/status-orcamento/empresa/${empresaId}`, status),
+    {
+      onSuccess: ({ empresaId }) => {
+        queryClient.invalidateQueries(
+          `/api/empresa/${empresaId}/status-orcamento`
+        );
+      },
+    }
+  );
+}
