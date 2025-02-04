@@ -15,7 +15,7 @@ export default function ExcluirServicoExtraCommand({ item, empresaId }) {
         message: (
           <>
             <Typography variant="h6">
-              Deseja excluir "{item.descricao}" da sua lista de status?
+              Deseja excluir "{item.descricao}" da sua lista de serviços?
             </Typography>
             <Typography style={{ marginTop: "1rem" }}>
               ATENÇÃO: Esta ação não poderá ser desfeita.

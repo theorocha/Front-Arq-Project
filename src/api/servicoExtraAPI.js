@@ -18,3 +18,19 @@ export function useExcluirServicoExtra() {
     }
   );
 }
+
+export function useNovoServicoExtra() {
+  const queryClient = useQueryClient();
+
+  return useMutation(
+    ({ servico, empresaId }) =>
+      api.post(`/api/servico-extra/empresa/${empresaId}`, servico),
+    {
+      onSuccess: ({ empresaId }) => {
+        queryClient.invalidateQueries(
+          `/api/empresa/${empresaId}/servico-extra`
+        );
+      },
+    }
+  );
+}

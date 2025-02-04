@@ -8,15 +8,15 @@ import {
   TextField,
   Tooltip,
 } from "@mui/material";
+import { useNovoServicoExtra } from "../../../api/servicoExtraAPI";
 import { useState } from "react";
 import useFeedback from "../../../components/geral/useFeedback";
-import { useNovoServicoPrestado } from "../../../api/servicoPrestadoAPI";
 
-export default function NovoServicoPrestadoCommand({ novoLabel, empresaId }) {
+export default function NovoServicoExtraCommand({ novoLabel, empresaId }) {
   const [descricao, setDescricao] = useState("");
   const [open, setOpen] = useState(false);
   const { showSuccess, showError } = useFeedback();
-  const novoServico = useNovoServicoPrestado();
+  const novoServico = useNovoServicoExtra();
 
   function handleClose() {
     setOpen(false);

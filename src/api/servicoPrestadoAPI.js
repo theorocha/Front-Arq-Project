@@ -18,3 +18,19 @@ export function useExcluirServicoPrestado() {
     }
   );
 }
+
+export function useNovoServicoPrestado() {
+  const queryClient = useQueryClient();
+
+  return useMutation(
+    ({ servico, empresaId }) =>
+      api.post(`/api/servico-prestado/empresa/${empresaId}`, servico),
+    {
+      onSuccess: ({ empresaId }) => {
+        queryClient.invalidateQueries(
+          `/api/empresa/${empresaId}/servico-prestado`
+        );
+      },
+    }
+  );
+}
